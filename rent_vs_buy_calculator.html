@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rent vs Buy Calculator</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    input, label { display: block; margin: 10px 0; }
+    #result { margin-top: 20px; font-weight: bold; }
+  </style>
+  <script>
+    function calculateRentVsBuy() {
+      var monthlyRent = parseFloat(document.getElementById("monthlyRent").value) || 0;
+      var homePrice = parseFloat(document.getElementById("homePrice").value) || 0;
+      var mortgage = homePrice * 0.006; // simplified monthly mortgage estimate (0.6% of home price)
+      var breakEven = (mortgage < monthlyRent) ? "Buying may save you money." : "Renting may be cheaper.";
+      document.getElementById("result").innerText = "Estimated Mortgage: $" + mortgage.toFixed(2) + " — " + breakEven;
+    }
+  </script>
+</head>
+<body>
+  <h2>Rent vs Buy Calculator</h2>
+  <label>Monthly Rent: $<input id="monthlyRent" type="number" oninput="calculateRentVsBuy()"></label>
+  <label>Home Purchase Price: $<input id="homePrice" type="number" oninput="calculateRentVsBuy()"></label>
+  <div id="result"></div>
+</body>
+</html>

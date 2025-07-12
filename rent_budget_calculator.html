@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rent Budget Calculator</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    input, label { display: block; margin: 10px 0; }
+    #result { margin-top: 20px; font-weight: bold; }
+  </style>
+  <script>
+    function calculateRentBudget() {
+      var income = parseFloat(document.getElementById("income").value) || 0;
+      var maxRent = income * 0.3;
+      document.getElementById("result").innerText = "Recommended Rent Budget: $" + maxRent.toFixed(2);
+    }
+  </script>
+</head>
+<body>
+  <h2>Rent Budget Calculator</h2>
+  <label>Monthly Income: $<input id="income" type="number" oninput="calculateRentBudget()"></label>
+  <div id="result"></div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rental Income Calculator</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    input, label { display: block; margin: 10px 0; }
+    #result { margin-top: 20px; font-weight: bold; }
+  </style>
+  <script>
+    function calculateRentalIncome() {
+      var rent = parseFloat(document.getElementById("rent").value) || 0;
+      var expenses = parseFloat(document.getElementById("expenses").value) || 0;
+      var vacancy = parseFloat(document.getElementById("vacancy").value) / 100 || 0;
+      var income = (rent * (1 - vacancy)) - expenses;
+      document.getElementById("result").innerText = "Net Monthly Income: $" + income.toFixed(2);
+    }
+  </script>
+</head>
+<body>
+  <h2>Rental Income Calculator</h2>
+  <label>Monthly Rent: $<input id="rent" type="number" oninput="calculateRentalIncome()"></label>
+  <label>Monthly Expenses: $<input id="expenses" type="number" oninput="calculateRentalIncome()"></label>
+  <label>Vacancy Rate (%): <input id="vacancy" type="number" oninput="calculateRentalIncome()"></label>
+  <div id="result"></div>
+</body>
+</html>
